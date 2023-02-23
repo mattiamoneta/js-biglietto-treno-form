@@ -1,10 +1,18 @@
+// Elementi DOM
+
 const ObjBtnSend = document.getElementById('btnSend');
 const ObjBtnReset = document.getElementById('btnReset');
 
 const ObjTxtName = document.getElementById('txtName');
 const ObjTxtMileage = document.getElementById('txtMileage');
 const ObjSelAge = document.getElementById('selAge');
+const ObjSectResults = document.getElementById('sectResults');
 
+const ObjDetailName = document.getElementById('detailName');
+const ObjDetailTariffa = document.getElementById('detailTariffa');
+const ObjDetailCarrozza = document.getElementById('detailCarrozza');
+const ObjDetailCP = document.getElementById('detailCP');
+const ObjDetailPrice = document.getElementById('detailPrice');
 
 
 ObjBtnSend.addEventListener('click',function(){
@@ -19,7 +27,8 @@ ObjBtnSend.addEventListener('click',function(){
 
 
     if (isNaN(valMileage) || valName == ""){
-        console.log('ERRORE: Valori mancanti.');
+        alert('ERRORE: Valori mancanti.');
+        ObjSectResults.classList.remove('visible');
     } else {
 
         switch (ObjSelAge.value) {
@@ -38,20 +47,34 @@ ObjBtnSend.addEventListener('click',function(){
                 break;
             
             default:
-                console.log('ERROR: Non è stato selezionato alcun valore.')
+                alert('ERROR: Non è stato selezionato alcun valore.')
         }
 
+        valPrice = `${valPrice.toFixed(2)} €`;
+
+        ObjDetailName.innerHTML = valName;
+        ObjDetailTariffa.innerHTML = valTariffa;
+        ObjDetailCP.innerHTML = valCP;
+        ObjDetailCarrozza.innerHTML = valCarrozza;
+        ObjDetailPrice.innerHTML = valPrice
+
+        ObjSectResults.classList.add('visible');
+
         // Arrotonda prezzo a due cifre decimali
-        valPrice = valPrice.toFixed(2);
+       
 
     }
 
-
-  
-
-    
+});
 
 
+ObjBtnReset.addEventListener('click',function(){
+
+    ObjTxtMileage.value = "";
+    ObjTxtName.value = "";
+    ObjSelAge.value = "under18";
+
+    ObjSectResults.classList.remove('visible');
 
 });
 

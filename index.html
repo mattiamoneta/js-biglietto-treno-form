@@ -5,23 +5,97 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="./css/master.css">
 
-    <title>Document</title>
+    <title>Acquisto Biglietto</title>
 </head>
-<body>
-    
-    <input type="text" name="txtName" id="txtName">
-    <input type="text" name="txtMileage" id="txtMileage">
-    
-    <select name="selAge" id="selAge">
-        <option value="under18">0-17</option>
-        <option value="mid">18-64</option>
-        <option value="over65">Over 65</option>
-    </select>
+<body class="bg-primary">
 
-    <button id="btnSend">Genera</button>
-    <button id="btnReset">Annulla</button>
+   <main>
+        <div class="container">
+            
+            <section>
+                <h2 class="text-white py-3 text-center">CALCOLO PREZZO BIGLIETTO</h2>
+
+                <div class="card text-center">
+                    <div class="row justify-around py-3">
+                        <div class="col">
+                            <label for="txtName" class="d-block text-primary mb-1">Nome Cognome</label>
+                            <input type="text" name="txtName" id="txtName" class="form-control">
+                        </div>
+                        <div class="col">
+                            <label for="txtMileage" class="d-block text-primary mb-1">Km da percorrere</label>
+                            <input type="text" name="txtMileage" id="txtMileage" class="form-control">
+                        </div>
+                        <div class="col">
+                            <label for="selAge" class="d-block text-primary mb-1">Fascia d'età</label>
+                            <select name="selAge" id="selAge" class="form-control">
+                                <option value="under18">0-17</option>
+                                <option value="mid">18-64</option>
+                                <option value="over65">Over 65</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="card-bottom py-2">
+                        <button id="btnSend" class="btn btn-primary mx-2">Genera</button>
+                        <button id="btnReset" class="btn btn-outline mx-2">Annulla</button>
+                    </div>
+                </div>
+            </section>
+
+        
+            <section class="results" id="sectResults">
+                <h2 class="text-white py-3 text-center">IL TUO BIGLIETTO</h2>
+                <div class="bg-white p-3">
+        
+                    <h3 class="mb-1">DETTAGLIO PASSEGGERI</h3>
+        
+                    <div class="row" id="customRow">
+                        <div class="col p-2 col-sm bg-secondary">
+                            <h4>NOME PASSEGGERO</h4>
+                            <span id="detailName"></span>
+                        </div>
+                        <div class="col p-2">
+                            <table>
+                                <thead class="text-left">
+                                    <tr>
+                                        <th>Offerta</th>
+                                        <th>Carrozza</th>
+                                        <th>Codice CP</th>
+                                        <th>Costo biglietto</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td id="detailTariffa"></td>
+                                        <td id="detailCarrozza"></td>
+                                        <td id="detailCP"></td>
+                                        <td id="detailPrice"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+        
+                </div>
+            </section>
+
+        </div>
+   </main>
+
+    
+    
+    
+    
+
+
+
 
 
     <script type="text/javascript" src="./js/main.js"></script>
